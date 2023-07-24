@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import Navbar from './Navbar';
 import Table from "./Table";
-// import Add from './Add';
+import Add from './Add';
+import Edit from './Edit';
 
 import { employeesData } from '../data/data';
 

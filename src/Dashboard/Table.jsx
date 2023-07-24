@@ -1,17 +1,17 @@
 import React from 'react';
-import { PlusCircleOutlined } from '@ant-design/icons';
+// import { PlusCircleOutlined } from '@ant-design/icons';
 import { EyeOutlined } from '@ant-design/icons';
 import { EditOutlined } from '@ant-design/icons';
 import { CloseCircleOutlined } from '@ant-design/icons';
 // import { Link } from 'react-router-dom';
 
-const Table = ({employees, handleEdit, handleDelete, setIsAdding}) => {
+const Table = ({employees, handleEdit, handleDelete}) => {
 
   return (
 <>
     <div className='max-w-2xl mx-auto mt-[5em] flex items-center justify-between mb-3'>
        <h3 className='text-2xl font-medium text-red-400'>Employees Details</h3>
-    <button onClick={() => setIsAdding(true)} className='text-green-700 rounded-md text-2xl tracking-wider hover:opacity-[.7]'><PlusCircleOutlined /></button>
+    {/* <button onClick={() =>setIsAdding(true)} className='text-green-700 rounded-md text-2xl tracking-wider hover:opacity-[.7]'><PlusCircleOutlined /></button> */}
     </div>
     <div className='flex justify-center max-w-4xl mx-auto'>
       <table className="table-auto w-screen">
