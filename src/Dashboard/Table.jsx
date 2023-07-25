@@ -6,6 +6,7 @@ import { CloseCircleOutlined } from '@ant-design/icons';
 // import { Link } from 'react-router-dom';
 
 const Table = ({ employees, handleEdit, handleDelete }) => {
+ 
 
   return (
    <>
@@ -41,7 +42,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                 ))
                 ) : (
                    <tr>
-                     <td className='mx-auto'>loader</td>
+                     <td className='mx-auto'>loading....</td>
                    </tr>
                 )
               }

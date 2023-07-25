@@ -1,20 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import Swal from 'sweetalert2';
+
 import Navbar from './Navbar';
 import Table from "./Table";
 import Add from './Add';
 import Edit from './Edit';
 
-import { employeesData } from '../data/data';
+import {collection, getDocs} from "firebase/firestore";
+import { db } from '../config/firebase'
+
+// import { employeesData } from '../data/data';
 
 const Dashboard = ({ setIsAuthenticated }) => {
-  const [employees, setEmployees] = useState(employeesData);
+  const [employees, setEmployees] = useState();
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isAdding, setIsAdding] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
+  // getsEmployees fucntion
+  const getEmployees = async () => {
+    const querySnapshot = await getDocs(collection(db, "employees"));
+    const employees = querySnapshot.docs.map(doc => ({id:doc.id, ...doc.data()}))
+        setEmployees(employees);
+  }
+
   useEffect(() => {
     // TODO: create getEmployees function and call it here
+    getEmployees()
   }, []);
 
   const handleEdit = id => {
@@ -73,7 +85,7 @@ const Dashboard = ({ setIsAuthenticated }) => {
             employees={employees}
             setEmployees={setEmployees}
             setIsAdding={setIsAdding}
-            // getEmployees={getEmployees}
+            getEmployees={getEmployees}
             />
           )}
           {isEditing && (

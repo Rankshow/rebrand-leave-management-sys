@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { db } from '../config/firebase';
+import { collection, addDoc } from "firebase/firestore"; 
 
 
 const Add = ({ employees, setEmployees, setIsAdding }) => {
@@ -29,6 +31,13 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
 
     employees.push(newEmployee);
     // TODO: Add doc to DB
+    try {
+      await addDoc(collection(db, "employees"), {
+        ...newEmployee
+      });
+    } catch (error){
+      console.log(error)
+    }
 
     setEmployees(employees);
     setIsAdding(false);
