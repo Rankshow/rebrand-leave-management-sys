@@ -23,6 +23,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
     }
 
     const newEmployee = {
+      id,
       name,
       email,
       phoneNo,

@@ -5,13 +5,12 @@ import { EditOutlined } from '@ant-design/icons';
 import { CloseCircleOutlined } from '@ant-design/icons';
 // import { Link } from 'react-router-dom';
 
-const Table = ({employees, handleEdit, handleDelete}) => {
+const Table = ({ employees, handleEdit, handleDelete }) => {
 
   return (
-<>
+   <>
     <div className='max-w-2xl mx-auto mt-[5em] flex items-center justify-between mb-3'>
        <h3 className='text-2xl font-medium text-red-400'>Employees Details</h3>
-    {/* <button onClick={() =>setIsAdding(true)} className='text-green-700 rounded-md text-2xl tracking-wider hover:opacity-[.7]'><PlusCircleOutlined /></button> */}
     </div>
     <div className='flex justify-center max-w-4xl mx-auto'>
       <table className="table-auto w-screen">
@@ -34,15 +33,15 @@ const Table = ({employees, handleEdit, handleDelete}) => {
                     <td>{data.email}</td>
                     <td>{data.phoneNo}</td>
                     <td>{data.leaveType}</td>
-                    <td><button onClick={() => handleDelete(employees.id)} className='text-red-600 font-bold text-2xl pb-1 hover:opacity-[.7]'><CloseCircleOutlined /></button>
-                  <button onClick={() => handleEdit(employees.id)} className='text-green-600 font-bold text-2xl pb-1 md:ml-3  hover:opacity-[.7]'><EditOutlined /></button>
-                    <button className='text-orange-600 font-bold text-2xl pb-1 md:ml-3  hover:opacity-[.7]'><EyeOutlined /></button>
+                    <td><button onClick={() => handleDelete(data.id)} className='text-red-600 font-bold text-2xl pb-1 hover:bg-red-300 hover:rounded-full'><CloseCircleOutlined /></button>
+                  <button onClick={() => handleEdit(data.id)} className='text-green-600 font-bold text-2xl pb-1 md:ml-3 hover:bg-green-400 hover:rounded-full'><EditOutlined /></button>
+                    <button className='text-orange-600 font-bold text-2xl pb-1 md:ml-3  hover:bg-orange-400 hover:rounded-full'><EyeOutlined /></button>
                     </td>  
                   </tr>
                 ))
                 ) : (
                    <tr>
-                     <td className='mx-auto'> Spinnal</td>
+                     <td className='mx-auto'>loader</td>
                    </tr>
                 )
               }

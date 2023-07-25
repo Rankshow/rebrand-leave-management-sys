@@ -2,7 +2,7 @@ import React from 'react';
 import Logout from '../logout/logout';
 import { PlusCircleOutlined } from '@ant-design/icons';
 
-const Navbar = ({ setIsAuthenticated, setIsAdding}) => {
+const Navbar = ({ setIsAuthenticated, setIsAdding }) => {
   return (
     <>
      <div>
@@ -17,8 +17,8 @@ const Navbar = ({ setIsAuthenticated, setIsAdding}) => {
       </nav>
         {/* Button that add more details */}
         <header className='flex justify-center '>
-      <button onClick={() => setIsAdding(true)} className='text-green-700 ml-[7em] mb-[-7.7em] rounded-md text-2xl tracking-wider hover:opacity-[.7] '><PlusCircleOutlined /></button>
-      </header>
+           <button onClick={() => setIsAdding(true)} className='text-green-700 ml-[7em] mb-[-7.7em] rounded-md text-2xl tracking-wider hover:opacity-[.7] '><PlusCircleOutlined /></button>    
+        </header>
     </div>
     </>
   )
