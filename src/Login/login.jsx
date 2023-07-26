@@ -6,7 +6,7 @@ const Login = ({ setIsAuthenticated }) => {
   const adminPassword = 'matthew';
 
   const [email, setEmail] = useState('uwaomaobinna20@gmail.com');
-  const [password, setPassword] = useState('matthew');
+  const [password, setPassword] = useState('rankshow20');
 
   const handleLogin = e => {
     e.preventDefault();

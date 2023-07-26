@@ -30,7 +30,8 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
     };
 
     employees.push(newEmployee);
-    // TODO: Add doc to DB
+    
+    //Add to the database.
     try {
       await addDoc(collection(db, "employees"), {
         ...newEmployee

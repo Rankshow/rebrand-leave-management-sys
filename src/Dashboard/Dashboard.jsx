@@ -24,11 +24,12 @@ const Dashboard = ({ setIsAuthenticated }) => {
         setEmployees(employees);
   }
 
+  // useEffect hook
   useEffect(() => {
-    // TODO: create getEmployees function and call it here
     getEmployees()
   }, []);
 
+  // Edit idual employee from the list.
   const handleEdit = id => {
     const [employee] = employees.filter(employee => employee.id === id);
 
@@ -36,6 +37,7 @@ const Dashboard = ({ setIsAuthenticated }) => {
     setIsEditing(true);
   };
 
+  // Delete individual employee from the list.
   const handleDelete = id => {
     Swal.fire({
       icon: 'warning',
@@ -64,6 +66,7 @@ const Dashboard = ({ setIsAuthenticated }) => {
     });
   };
 
+  // Redering to the DOM
   return (
     <div className='md:mx-auto'>
          {!isAdding && !isEditing && (
