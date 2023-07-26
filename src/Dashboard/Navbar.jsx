@@ -24,4 +24,4 @@ const Navbar = ({ setIsAuthenticated, setIsAdding }) => {
   )
 }
 
-export default Navbar
+export default Navbar;

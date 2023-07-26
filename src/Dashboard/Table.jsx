@@ -3,7 +3,7 @@ import React from 'react';
 import { EyeOutlined } from '@ant-design/icons';
 import { EditOutlined } from '@ant-design/icons';
 import { CloseCircleOutlined } from '@ant-design/icons';
-// import { Link } from 'react-router-dom';
+import { Blocks } from 'react-loader-spinner';
 
 const Table = ({ employees, handleEdit, handleDelete }) => {
  
@@ -42,7 +42,16 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                 ))
                 ) : (
                    <tr>
-                     <td className='mx-auto'>loading....</td>
+                     <td className='flex justify-center max-w-4xl mx-auto'>
+                     <Blocks
+                      visible={true}
+                      height="80"
+                      width="80"
+                      ariaLabel="blocks-loading"
+                      wrapperStyle={{}}
+                      wrapperClass="blocks-wrapper"
+                    />
+                     </td>
                    </tr>
                 )
               }
