@@ -36,7 +36,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                     <td>{data.leaveType}</td>
                     <td><button onClick={() => handleDelete(data.id)} className='text-red-600 font-bold text-2xl pb-1 hover:bg-red-300 hover:rounded-full'><CloseCircleOutlined /></button>
                   <button onClick={() => handleEdit(data.id)} className='text-green-600 font-bold text-2xl pb-1 md:ml-3 hover:bg-green-400 hover:rounded-full'><EditOutlined /></button>
-                    <button className='text-orange-600 font-bold text-2xl pb-1 md:ml-3  hover:bg-orange-400 hover:rounded-full'><EyeOutlined /></button>
+                    {/* <button className='text-orange-600 font-bold text-2xl pb-1 md:ml-3  hover:bg-orange-400 hover:rounded-full'><EyeOutlined /></button> */}
                     </td>  
                   </tr>
                 ))

@@ -4,7 +4,7 @@ import { db } from '../config/firebase';
 import { collection, addDoc } from "firebase/firestore"; 
 
 
-const Add = ({ employees, setEmployees, setIsAdding }) => {
+const Add = ({ employees, setEmployees, setIsAdding, getEmployees }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
@@ -42,6 +42,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
 
     setEmployees(employees);
     setIsAdding(false);
+    getEmployees();
   //  NB: setIsAdding makes the popUp go away
 
     Swal.fire({
