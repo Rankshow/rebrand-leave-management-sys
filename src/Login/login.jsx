@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase";
 
 const Login = ({ setIsAuthenticated }) => {
-  const adminEmail = "uwaomaobinna20@gmail.com";
-  const adminPassword = "rankshow20";
-
-  const [email, setEmail] = useState("uwaomaobinna20@gmail.com");
-  const [password, setPassword] = useState("rankshow20");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    if (email === adminEmail && password === adminPassword) {
+    //Authenticating a user
+    try {
+      signInWithEmailAndPassword(auth, email, password);
       Swal.fire({
         timer: 1500,
         showConfirmButton: false,
@@ -19,9 +20,7 @@ const Login = ({ setIsAuthenticated }) => {
           Swal.showLoading();
         },
         willClose: () => {
-          localStorage.setItem("is_authenticated", true);
           setIsAuthenticated(true);
-
           Swal.fire({
             icon: "success",
             title: "Successfully logged in!",
@@ -30,7 +29,7 @@ const Login = ({ setIsAuthenticated }) => {
           });
         },
       });
-    } else {
+    } catch(error) {
       Swal.fire({
         timer: 1500,
         showConfirmButton: false,
@@ -48,8 +47,10 @@ const Login = ({ setIsAuthenticated }) => {
       });
     }
   };
+
+  // rendering to the Dom
   return (
-    <div className="bg-slate-400 max-w-3xl h-screen flex items-center justify-center mx-auto">
+    <div className="bg-gradient-to-b from-indigo-800  max-w-3xl h-screen flex items-center justify-center mx-auto">
       <form className="flex justify-center flex-col items-center ">
         <h1 className="text-2xl md:text-2xl font-medium text-red-800 mb-3">
           Login to Leave management Account
@@ -62,7 +63,6 @@ const Login = ({ setIsAuthenticated }) => {
           onClick={(e) => setEmail(e.target.value)}
           className="w-80 py-2 rounded-md pl-3 mb-5 outline-none"
           type="text"
-          value={email}
           placeholder="enter your email"
         />
         {/* password */}
@@ -73,7 +73,6 @@ const Login = ({ setIsAuthenticated }) => {
           onClick={(e) => setPassword(e.target.value)}
           className="w-80 py-2 rounded-md pl-3 outline-none"
           type="password"
-          value={password}
           placeholder="enter your password"
         />
         {/*Login*/}
