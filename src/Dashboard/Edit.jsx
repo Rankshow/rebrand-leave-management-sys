@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { doc, setDoc } from "firebase/firestore";
+import { db } from '../config/firebase';
 
-const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
+const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing, getEmployees }) => {
   const id = selectedEmployee.id;
 
   const [name, setName] = useState(selectedEmployee.name);
@@ -10,7 +12,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
   const [leaveType, setLeaveType] = useState(selectedEmployee.leaveType);
   
 
-  const handleUpdate = e => {
+  const handleUpdate =  async (e) => {
     e.preventDefault();
 
     if (!name || !email || !phoneNo || !leaveType) {
@@ -30,10 +32,14 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
       leaveType,
     };
 
-    // TODO: Update document
-
-    setEmployees(employees);
-    setIsEditing(false);
+      // Update the document the database and DOM 
+      await setDoc(doc(db, "employees", id), {
+        ...newEmployee
+      })
+      
+      setEmployees(employees);
+      setIsEditing(false);
+      getEmployees();
 
     Swal.fire({
       icon: 'success',

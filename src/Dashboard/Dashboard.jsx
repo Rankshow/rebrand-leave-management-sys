@@ -91,13 +91,14 @@ const Dashboard = ({ setIsAuthenticated }) => {
             setIsAdding={setIsAdding}
             getEmployees={getEmployees}
             />
-          )}
+            )}
           {isEditing && (
-        <Edit
-          employees={employees}
-          selectedEmployee={selectedEmployee}
-          setEmployees={setEmployees}
-          setIsEditing={setIsEditing}
+            <Edit
+            employees={employees}
+            selectedEmployee={selectedEmployee}
+            setEmployees={setEmployees}
+            setIsEditing={setIsEditing}
+            getEmployees={getEmployees}
         />
       )}
     </div>
