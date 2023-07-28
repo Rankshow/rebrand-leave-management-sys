@@ -6,7 +6,7 @@ import Table from "./Table";
 import Add from './Add';
 import Edit from './Edit';
 
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs, doc, deleteDoc} from "firebase/firestore";
 import { db } from '../config/firebase'
 
 // import { employeesData } from '../data/data';
@@ -50,7 +50,8 @@ const Dashboard = ({ setIsAuthenticated }) => {
       if (result.value) {
         const [employee] = employees.filter(employee => employee.id === id);
 
-        // TODO delete document
+        // TODO delete document from the database
+        deleteDoc(doc(db, "employees", id));
 
         Swal.fire({
           icon: 'success',
@@ -104,3 +105,4 @@ const Dashboard = ({ setIsAuthenticated }) => {
 };
 
 export default Dashboard;
+
