@@ -90,7 +90,7 @@ const Login = ({ setIsAuthenticated }) => {
   // rendering to the Dom
   return (
     <div className=" max-w-3xl h-screen flex items-center justify-center mx-auto">
-      <form className="w-[50vw] shadow-slate-800 rounded-se-md flex justify-center flex-col items-center h-[500px] bg-black">
+      <form className="md:w-[50vw] w-[380px] text-center shadow-slate-800 rounded-se-md flex justify-center flex-col items-center h-[500px] bg-black">
         <h1 className="text-2xl md:text-2xl font-medium text-white mb-3">
           Login to Leave management Account
         </h1>
