@@ -1,9 +1,9 @@
 import React from 'react';
 // import { PlusCircleOutlined } from '@ant-design/icons';
-import { EyeOutlined } from '@ant-design/icons';
+// import { EyeOutlined } from '@ant-design/icons';
 import { EditOutlined } from '@ant-design/icons';
 import { CloseCircleOutlined } from '@ant-design/icons';
-import { Blocks } from 'react-loader-spinner';
+import { Oval } from 'react-loader-spinner';
 
 const Table = ({ employees, handleEdit, handleDelete }) => {
  
@@ -43,14 +43,18 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                 ) : (
                    <tr>
                      <td className='flex justify-center max-w-4xl mx-auto'>
-                     <Blocks
-                      visible={true}
-                      height="80"
-                      width="80"
-                      ariaLabel="blocks-loading"
-                      wrapperStyle={{}}
-                      wrapperClass="blocks-wrapper"
-                    />
+                     <Oval
+                        height={80}
+                        width={80}
+                        color="#4fa94d"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                        ariaLabel='oval-loading'
+                        secondaryColor="#4fa94d"
+                        strokeWidth={2}
+                        strokeWidthSecondary={2}
+                      />
                      </td>
                    </tr>
                 )
